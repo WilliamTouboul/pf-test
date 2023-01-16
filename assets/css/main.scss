@@ -13,21 +13,21 @@ neue_mechanica_light
 
 
 :root {
-    --background: rgb(197, 205, 198);
+    --background: rgb(243, 243, 243);
     --text: #212121;
     --text_size: 1rem;
     --title-size: 2rem;
     --big-title: 4rem;
     --visited: #616161;
-    --accent: #dbff0d;
-    font-size: 16px;
+    --accent: #13c9c0;
+    font-size: 20px;
 }
 
 body {
     background-color: var(--background);
     color: var(--text);
-    padding-left: 3vw;
-    padding-right: 3vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
     font-family: 'neue_mechanica_regular';
 }
 
@@ -43,6 +43,17 @@ nav {
         font-weight: 200;
         letter-spacing: .5px;
         cursor: pointer;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background-color: var(--accent);
+            bottom: -.4rem;
+            left: 0;
+        }
 
         a {
             text-decoration: none;
@@ -113,7 +124,7 @@ nav {
             position: relative;
 
             .stabilo {
-                background-color: #dbff0dcc;
+                background-color: var(--accent);
                 width: 0%;
                 height: 100%;
                 position: absolute;
@@ -169,4 +180,107 @@ nav {
             font-weight: 400;
         }
     }
+}
+
+.content_1 {
+    margin-bottom: 8rem;
+
+    h2 {
+        font-size: var(--title-size);
+        margin-bottom: 2rem;
+    }
+
+    .what_we_do {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        svg {
+            margin-bottom: 2rem;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            &:nth-child(2) {
+                padding-left: 1rem;
+            }
+
+            &:nth-child(3) {
+                padding-left: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+                position: relative;
+                width: max-content;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    width: 100%;
+                    background-color: var(--accent);
+                    bottom: -.4rem;
+                    left: 0;
+                }
+            }
+
+            p {
+                width: 60%;
+                margin-bottom: 2rem;
+                font-family: 'neue_mechanica_light';
+            }
+
+            ul {
+                list-style: none;
+
+                li {
+                    line-height: 160%;
+                    position: relative;
+                    width: max-content;
+
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        left: 0;
+                        top: 0;
+                        background-color: var(--accent);
+                        width: 0%;
+                        height: 100%;
+                        z-index: -99;
+                        transition: all .4s ease-out;
+                    }
+
+                    &:hover {
+                        background-clip: text;
+
+                        &:after {
+                            width: 100%;
+                        }
+
+                        transition : color .2s ease-out;
+
+                        /* a modifier selon accent */
+                        color : white;
+                    }
+
+
+                    span {
+                        font-size: .6rem;
+                        font-family: 'neue_mechanica_light';
+                    }
+                }
+            }
+        }
+    }
+}
+
+.banner_mid {
+    width: 100%;
+    height: 450px;
+    margin-bottom: 8rem;
+    object-fit: cover;
+    object-position: center bottom;
 }
