@@ -59,6 +59,11 @@ gosha_regular
   --font_content: "stellar_light";
   --font_title: "neue_mechanica_regular";
 }
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
+}
 
 body {
   background-color: var(--background);
@@ -76,10 +81,15 @@ h6 {
 
 p {
   font-family: var(--font_content);
+  line-height: 125%;
 }
 
 nav {
   display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
   height: 3rem;
   align-items: center;
   justify-content: space-between;
@@ -156,6 +166,42 @@ nav ul .contact_nav:hover a {
     display: none;
   }
 }
+nav .menu {
+  display: none;
+}
+@media screen and (max-width: 425px) {
+  nav .menu {
+    display: block;
+  }
+}
+
+.nav_open {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+.nav_open ul {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.nav_open ul a {
+  font-size: 2rem;
+}
+.nav_open h1 {
+  position: absolute;
+  top: 0.9rem;
+  left: 1.5rem;
+}
+.nav_open .menu {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
 
 .header_container {
   height: 60vh;
@@ -183,6 +229,7 @@ nav ul .contact_nav:hover a {
 }
 .header_container .accroche span {
   position: relative;
+  white-space: nowrap;
 }
 .header_container .accroche span .stabilo {
   background-color: var(--accent);
@@ -192,7 +239,6 @@ nav ul .contact_nav:hover a {
   top: -8%;
   left: -5%;
   z-index: -9;
-  white-space: nowrap;
 }
 @media screen and (max-width: 1280px) {
   .header_container .accroche {
@@ -202,8 +248,13 @@ nav ul .contact_nav:hover a {
 }
 @media screen and (max-width: 1024px) {
   .header_container .accroche {
-    width: 80%;
+    width: 85%;
     font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header_container .accroche {
+    width: 100%;
   }
 }
 
@@ -272,6 +323,11 @@ nav ul .contact_nav:hover a {
 }
 .content_1 .what_we_do svg {
   margin-bottom: 2rem;
+}
+@media screen and (max-width: 1024px) {
+  .content_1 .what_we_do svg {
+    margin-top: 2rem;
+  }
 }
 .content_1 .what_we_do div {
   display: flex;
@@ -411,6 +467,18 @@ nav ul .contact_nav:hover a {
 .content_2 img {
   width: 30%;
 }
+@media screen and (max-width: 425px) {
+  .content_2 {
+    flex-direction: column;
+  }
+  .content_2 p,
+.content_2 img {
+    width: 100%;
+  }
+  .content_2 p {
+    margin-bottom: 2rem;
+  }
+}
 
 footer {
   background-color: var(--text);
@@ -418,7 +486,6 @@ footer {
   position: relative;
   margin-top: 8rem;
   padding-top: 6rem;
-  /*test*/
 }
 footer .encart {
   position: absolute;
@@ -436,6 +503,13 @@ footer .encart {
   width: 60vw;
   padding-inline: 6rem;
 }
+@media screen and (max-width: 425px) {
+  footer .encart {
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
 footer .encart .left {
   font-size: 1.6rem;
   width: 30%;
@@ -451,6 +525,13 @@ footer .encart .left {
     width: 50%;
   }
 }
+@media screen and (max-width: 425px) {
+  footer .encart .left {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
 footer .encart .right {
   font-size: 1.2rem;
   border: 1px var(--text) solid;
@@ -462,6 +543,11 @@ footer .encart .right:hover {
   cursor: pointer;
   color: var(--accent) !important;
   transition: all 0.2s ease-out;
+}
+@media screen and (max-width: 425px) {
+  footer .encart .right {
+    font-size: 1rem;
+  }
 }
 @media screen and (max-width: 1440px) {
   footer .encart {
@@ -536,6 +622,18 @@ footer .row_1 > .right ul li a:hover {
     padding-inline: 0;
   }
 }
+@media screen and (max-width: 425px) {
+  footer .row_1 {
+    grid-template-columns: 1fr;
+  }
+  footer .row_1 > .left p {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  footer .row_1 > .middle {
+    margin-bottom: 2rem;
+  }
+}
 footer .row_rs {
   padding-inline: 20vw;
   display: flex;
@@ -561,6 +659,13 @@ footer .row_rs a:hover {
 @media screen and (max-width: 1280px) {
   footer .row_rs {
     padding-inline: 0;
+  }
+}
+@media screen and (max-width: 425px) {
+  footer .row_rs {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 }
 footer .row_mail {
@@ -616,10 +721,20 @@ footer .row_mail h3 {
   opacity: 0.6;
   font-weight: 200;
 }
+@media screen and (max-width: 425px) {
+  footer .row_mail h3 {
+    align-self: flex-start;
+  }
+}
 footer .row_mail a {
   text-decoration: none;
   color: var(--background);
   font-family: var(--font_content);
+}
+@media screen and (max-width: 425px) {
+  footer .row_mail a {
+    align-self: flex-start;
+  }
 }
 @media screen and (max-width: 1440px) {
   footer .row_mail {
@@ -629,6 +744,12 @@ footer .row_mail a {
 @media screen and (max-width: 1280px) {
   footer .row_mail {
     padding-inline: 14vw;
+  }
+}
+@media screen and (max-width: 425px) {
+  footer .row_mail {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 footer .row_copyright {
@@ -639,6 +760,7 @@ footer .row_copyright {
   padding-bottom: 2rem;
   opacity: 0.6;
   font-size: 0.6rem;
+  font-style: italic;
 }
 @media screen and (max-width: 1440px) {
   footer {
@@ -648,5 +770,15 @@ footer .row_copyright {
 @media screen and (max-width: 1280px) {
   footer {
     padding-inline: 14vw;
+  }
+}
+@media screen and (max-width: 425px) {
+  footer {
+    padding-top: 9rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  footer {
+    padding-top: 12rem;
   }
 }/*# sourceMappingURL=main.css.map */

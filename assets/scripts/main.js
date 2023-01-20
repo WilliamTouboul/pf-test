@@ -22,3 +22,18 @@ window.addEventListener('load', function () {
         panel_gallery.style.display = 'none';
     }, 3400)
 });
+
+
+const toggle = document.querySelector('.menu');
+const navbar = document.querySelector('nav');
+const body = document.querySelector('body');
+
+toggle.addEventListener('click', function () {
+    if (navbar.classList.contains('nav_open')) {
+        navbar.classList.remove('nav_open');
+        body.style.overflow = 'none';
+    } else {
+        navbar.classList.add('nav_open');
+        body.style.overflow = 'scroll';
+    }
+})
