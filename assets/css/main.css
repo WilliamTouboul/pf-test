@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* ------------------------------ Neue Machina ------------------------------ */
 @font-face {
   font-family: neue_mechanica_regular;
   src: url("../fonts/NeueMachina/PPNeueMachina-InktrapRegular.otf");
@@ -16,12 +17,34 @@
   font-family: neue_mechanica_light;
   src: url("../fonts/NeueMachina/PPNeueMachina-InktrapLight.otf");
 }
+/* --------------------------------- Stellar -------------------------------- */
+@font-face {
+  font-family: stellar_bold;
+  src: url("../fonts/Stellar/PPStellar-Bold.otf");
+}
+@font-face {
+  font-family: stellar_light;
+  src: url("../fonts/Stellar/PPStellar-Light.otf");
+}
+/* ------------------------------- Gosha Sans ------------------------------- */
+@font-face {
+  font-family: gosha_bold;
+  src: url("../fonts/goshaSans/PPGoshaSans-Bold.otf");
+}
+@font-face {
+  font-family: gosha_regular;
+  src: url("../fonts/goshaSans/PPGoshaSans-Regular.otf");
+}
 /* 
-
 neue_mechanica_bold; 
 neue_mechanica_regular; 
 neue_mechanica_light;
 
+stellar_bold
+stellar_light
+
+gosha_abold
+gosha_regular
 */
 :root {
   --background: rgb(243, 243, 243);
@@ -33,16 +56,26 @@ neue_mechanica_light;
   --accent: #13c9c0;
   --main_margin: 6vw;
   font-size: 20px;
+  --font_content: "stellar_light";
+  --font_title: "neue_mechanica_regular";
 }
 
 body {
   background-color: var(--background);
   color: var(--text);
-  font-family: "neue_mechanica_regular";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font_title);
 }
 
 p {
-  font-family: "neue_mechanica_light";
+  font-family: var(--font_content);
 }
 
 nav {
@@ -118,6 +151,11 @@ nav ul .contact_nav:hover a {
   color: var(--accent) !important;
   transition: all 0.2s ease-out;
 }
+@media screen and (max-width: 425px) {
+  nav ul {
+    display: none;
+  }
+}
 
 .header_container {
   height: 60vh;
@@ -139,7 +177,7 @@ nav ul .contact_nav:hover a {
 }
 .header_container .accroche {
   font-size: var(--big-title);
-  font-family: "neue_mechanica_regular";
+  font-family: var(--font_title);
   width: 65%;
   line-height: 120%;
 }
@@ -154,6 +192,19 @@ nav ul .contact_nav:hover a {
   top: -8%;
   left: -5%;
   z-index: -9;
+  white-space: nowrap;
+}
+@media screen and (max-width: 1280px) {
+  .header_container .accroche {
+    width: 70%;
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .header_container .accroche {
+    width: 80%;
+    font-size: 2.5rem;
+  }
 }
 
 .gallery {
@@ -194,7 +245,7 @@ nav ul .contact_nav:hover a {
 .gallery .gallery_item h3 {
   margin-bottom: 1rem;
   font-size: var(--title-size);
-  font-family: "neue_mechanica_light";
+  font-family: var(--font_title);
   font-weight: 400;
 }
 
@@ -205,12 +256,19 @@ nav ul .contact_nav:hover a {
 }
 .content_1 h2 {
   font-size: var(--title-size);
+  font-family: var(--font_title);
   margin-bottom: 2rem;
 }
 .content_1 .what_we_do {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 1fr;
+}
+@media screen and (max-width: 1024px) {
+  .content_1 .what_we_do {
+    grid-template-columns: 1fr;
+    grid-template-areas: "c1" "c2" "c3" "c4" "c5" "c6";
+  }
 }
 .content_1 .what_we_do svg {
   margin-bottom: 2rem;
@@ -254,7 +312,6 @@ nav ul .contact_nav:hover a {
 .content_1 .what_we_do div p {
   width: 60%;
   margin-bottom: 2rem;
-  font-family: "neue_mechanica_light";
 }
 .content_1 .what_we_do div ul {
   list-style: none;
@@ -265,6 +322,7 @@ nav ul .contact_nav:hover a {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  font-family: var(--font_content);
 }
 .content_1 .what_we_do div ul li:after {
   position: absolute;
@@ -289,7 +347,41 @@ nav ul .contact_nav:hover a {
 }
 .content_1 .what_we_do div ul li span {
   font-size: 0.6rem;
-  font-family: "neue_mechanica_light";
+}
+@media screen and (max-width: 1280px) {
+  .content_1 .what_we_do div svg {
+    height: 40px;
+    width: 40px;
+  }
+  .content_1 .what_we_do div p {
+    width: 80%;
+  }
+  .content_1 .what_we_do div ul li {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .content_1 .what_we_do div {
+    padding-left: 0 !important;
+  }
+  .content_1 .what_we_do div:first-child {
+    grid-area: c1;
+  }
+  .content_1 .what_we_do div:nth-child(2) {
+    grid-area: c3;
+  }
+  .content_1 .what_we_do div:nth-child(3) {
+    grid-area: c5;
+  }
+  .content_1 .what_we_do div:nth-child(4) {
+    grid-area: c2;
+  }
+  .content_1 .what_we_do div:nth-child(5) {
+    grid-area: c4;
+  }
+  .content_1 .what_we_do div:nth-child(6) {
+    grid-area: c6;
+  }
 }
 
 .banner_mid {
@@ -347,11 +439,23 @@ footer .encart {
 footer .encart .left {
   font-size: 1.6rem;
   width: 30%;
+  font-family: var(--font_title);
+}
+@media screen and (max-width: 1440px) {
+  footer .encart .left {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .encart .left {
+    width: 50%;
+  }
 }
 footer .encart .right {
   font-size: 1.2rem;
   border: 1px var(--text) solid;
   padding: 0.6rem 1.2rem;
+  font-family: var(--font_title);
 }
 footer .encart .right:hover {
   background-color: var(--text);
@@ -359,11 +463,28 @@ footer .encart .right:hover {
   color: var(--accent) !important;
   transition: all 0.2s ease-out;
 }
+@media screen and (max-width: 1440px) {
+  footer .encart {
+    padding-inline: 3rem;
+    width: 72vw;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .encart {
+    padding-inline: 3rem;
+    width: 72vw;
+  }
+}
 footer .row_1 {
   padding-inline: 20vw;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 3fr 2fr 2fr;
   margin-top: 2rem;
+}
+footer .row_1 p,
+footer .row_1 ul,
+footer .row_1 li {
+  font-family: var(--font_content);
 }
 footer .row_1 > .left h3 {
   margin-bottom: 3rem;
@@ -372,6 +493,7 @@ footer .row_1 > .left p {
   font-size: 0.8rem;
   width: 75%;
   opacity: 0.6;
+  line-height: 125%;
 }
 footer .row_1 > .middle h3 {
   margin-bottom: 3rem;
@@ -404,12 +526,23 @@ footer .row_1 > .right ul li a:hover {
   color: var(--accent);
   opacity: 1 !important;
 }
+@media screen and (max-width: 1440px) {
+  footer .row_1 {
+    padding-inline: 0;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .row_1 {
+    padding-inline: 0;
+  }
+}
 footer .row_rs {
   padding-inline: 20vw;
   display: flex;
   justify-content: space-around;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  font-family: var(--font_title);
 }
 footer .row_rs a {
   color: var(--background);
@@ -419,6 +552,16 @@ footer .row_rs a {
 footer .row_rs a:hover {
   opacity: 1;
   color: var(--accent);
+}
+@media screen and (max-width: 1440px) {
+  footer .row_rs {
+    padding-inline: 0;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .row_rs {
+    padding-inline: 0;
+  }
 }
 footer .row_mail {
   display: flex;
@@ -440,6 +583,16 @@ footer .row_mail:after {
   top: 0;
   opacity: 0.1;
 }
+@media screen and (max-width: 1440px) {
+  footer .row_mail:after {
+    width: 72vw;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .row_mail:after {
+    width: 72vw;
+  }
+}
 footer .row_mail:before {
   position: absolute;
   content: "";
@@ -449,6 +602,16 @@ footer .row_mail:before {
   bottom: 0;
   opacity: 0.1;
 }
+@media screen and (max-width: 1440px) {
+  footer .row_mail:before {
+    width: 72vw;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .row_mail:before {
+    width: 72vw;
+  }
+}
 footer .row_mail h3 {
   opacity: 0.6;
   font-weight: 200;
@@ -456,6 +619,17 @@ footer .row_mail h3 {
 footer .row_mail a {
   text-decoration: none;
   color: var(--background);
+  font-family: var(--font_content);
+}
+@media screen and (max-width: 1440px) {
+  footer .row_mail {
+    padding-inline: 14vw;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .row_mail {
+    padding-inline: 14vw;
+  }
 }
 footer .row_copyright {
   display: flex;
@@ -465,4 +639,14 @@ footer .row_copyright {
   padding-bottom: 2rem;
   opacity: 0.6;
   font-size: 0.6rem;
+}
+@media screen and (max-width: 1440px) {
+  footer {
+    padding-inline: 14vw;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer {
+    padding-inline: 14vw;
+  }
 }/*# sourceMappingURL=main.css.map */

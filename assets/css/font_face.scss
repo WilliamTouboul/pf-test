@@ -1,3 +1,5 @@
+/* ------------------------------ Neue Machina ------------------------------ */
+
 @font-face {
     font-family: neue_mechanica_regular;
     src: url('../fonts/NeueMachina/PPNeueMachina-InktrapRegular.otf');
@@ -11,4 +13,29 @@
 @font-face {
     font-family: neue_mechanica_light;
     src: url('../fonts/NeueMachina/PPNeueMachina-InktrapLight.otf');
+}
+
+/* --------------------------------- Stellar -------------------------------- */
+
+@font-face {
+    font-family: stellar_bold;
+    src: url('../fonts/Stellar/PPStellar-Bold.otf');
+}
+
+@font-face {
+    font-family: stellar_light;
+    src: url('../fonts/Stellar/PPStellar-Light.otf');
+}
+
+/* ------------------------------- Gosha Sans ------------------------------- */
+
+
+@font-face {
+    font-family:gosha_bold;
+    src: url('../fonts/goshaSans/PPGoshaSans-Bold.otf');
+}
+
+@font-face {
+    font-family: gosha_regular;
+    src: url('../fonts/goshaSans/PPGoshaSans-Regular.otf');
 }
