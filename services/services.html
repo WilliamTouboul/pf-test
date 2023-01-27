@@ -11,7 +11,7 @@
 
 <body class="body_services">
     <nav>
-        <h1><a href="index.html">Will</a></h1>
+        <h1><a href="../index.html">Will</a></h1>
         <ul class="navigation">
             <li class="dropdown_parent">
                 <a href="services/services.html">Services</a>
@@ -71,7 +71,7 @@
                 <div>
                     <h4>UI Design</h4>
                     <ul>
-                        <li>Wireframe ultra fidèle</li>
+                        <li>Wireframe</li>
                         <li>Design System</li>
                         <li>Design Final</li>
                         <li>Présentation</li>
@@ -123,8 +123,9 @@
                     Recherche détaillé
                 </h4>
                 <p>
-                    Pour vous delivrer la meilleure experience possible, nous recherchons en profondeur et nous evaluons
-                    vos produits et ses utilisateurs afin de creer des fondations solides a votre stratégie de marque.
+                    Pour vous delivrer la meilleure experience possible, nous recherchons en profondeur
+                    et nous evaluons vos produits et ses utilisateurs afin de creer des fondations
+                    solides a votre stratégie de marque.
                 </p>
             </div>
             <div class="process_line">
@@ -142,7 +143,7 @@
                 </h4>
                 <p>
                     Nous créérons une disposition pour vous montrer quels elements importants seront sur les parties
-                    clés du produit.
+                    clés de votre site.
                 </p>
             </div>
             <div class="process_line">
@@ -150,8 +151,8 @@
                     Prototypage
                 </h4>
                 <p>
-                    Un prototype est un modele experimentale du produit que nous aurons planifié. Selon le besoin nous
-                    créérons un prototype a trés haute ou basse fidélité pour créer au mieux l'experience utilisateurs.
+                    Un prototype est un modele experimentale du site web que nous aurons planifié.
+                    Selon le besoin nous créérons un prototype pour créer au mieux l'experience utilisateurs.
                 </p>
             </div>
             <div class="process_line">
@@ -169,28 +170,45 @@
                 </h4>
                 <p>
                     Une fois que nous auront affiné au mieux le design et que nous l'aurons adapté a votre audience et
-                    votre public ciblé. Nous finaliserons votre design avant de vous le livrer.
+                    votre public ciblé. Nous finaliserons votre site avant de vous le livrer.
                 </p>
             </div>
         </div>
     </div>
 
     <div class="content_services_5">
-        <h2>Développement</h2>
+        <div class="accroche">
+            <h2>Développement</h2>
+            <p>
+                Une des parties les plus primordiales de votre marque est son site web.
+                Avec nous, vous trouverez une expertise en front end et en back end pour developper au mieux votre site
+                web.
+            </p>
+        </div>
+        <div class="language">
+            <img src="../assets/images/language/HTML5_logo_and_wordmark.svg.png" alt="">
+            <img src="../assets/images/language/1452px-CSS3_logo_and_wordmark.svg.png" alt="">
+            <img src="../assets/images/language/Unofficial_JavaScript_logo_2.svg.png" alt="">
+
+            <img src="../assets/images/language/PHP-logo.svg.png" alt="">
+            <img src="../assets/images/language/Logo_C_sharp.svg.png" alt="">
+            <img src="../assets/images/language/kisspng-wordpress-computer-icons-logo-5b0a12cf9a76a9.7667646415273868316327.jpg"
+                alt="">
+            <img src="../assets/images/language/google_analytics-ar21.png" alt="">
+        </div>
+
         <p>
-            Une des parties les plus primordiales de votre marque est son site web.
-            Avec nous, vous trouverez une expertise en front end et en back end pour developper au mieux votre produit.
+            Chaque projet aura des besoins et des nécéssités technique differentes, et nous mettrons en oeuvre les
+            compétences utiles pour faire briller votre site.
+
         </p>
     </div>
-
-
-
 
     <footer>
         <div class="row_1">
             <div class="encart">
                 <div class="left">Dites nous tout.</div>
-                <div class="right">Vous avez<br>un projet ? </div>
+                <a href="../contact.html" class="right">Vous avez<br>un projet ? </a>
             </div>
             <div class="left">
                 <h3>WILL</h3>
@@ -276,7 +294,22 @@
         </div>
     </footer>
 
-    <script src="assets/scripts/main.js"></script>
+    <script>
+        const toggle = document.querySelector('.menu');
+        const navbar = document.querySelector('nav');
+        const body = document.querySelector('body');
+
+        toggle.addEventListener('click', function () {
+            if (navbar.classList.contains('nav_open')) {
+                navbar.classList.remove('nav_open');
+                body.style.overflow = 'none';
+            } else {
+                navbar.classList.add('nav_open');
+                body.style.overflow = 'scroll';
+            }
+        })
+    </script>
+
 </body>
 
 </html>
